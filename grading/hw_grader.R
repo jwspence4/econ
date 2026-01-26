@@ -54,52 +54,75 @@ df_hw_combo <- df_hw_long |>
 # Add in late assignments
 df_hw_lates <- df_hw_combo |>
   mutate(
-    ch15other = case_when(
-      lastname == "Gianopulos" ~ 75,
-      firstname == "Diana" ~ 75,
-      lastname == "Iofin" ~ 100,
-      .default = ch15other
-    ),
-    ch15hw2 = case_when(
-      firstname == "Neev" ~ 100,
-      firstname == "Diana" ~ 75,
-      .default = ch15hw2
-    ),
-    ch14cw1 = case_when(
-      lastname == "Bader" ~ 20/22 * 100,
-      lastname == "Gianopulos" ~ 100,
-      lastname == "Aronstein" ~ 75,
-      .default = ch14cw1
-    ),
-    ch14hw1 = case_when(
-      firstname == "Neev" ~ 75,
-      .default = ch14hw1
+    ch10hw2 = case_when(
+      firstname == "A.J." ~ 75,
+      lastname == "Nangle" ~ 75,
+      .default = ch10hw2
     ),
     ch11cw = case_when(
       lastname == "Abush" ~ 75,
       lastname == "Maggio" ~ 75,
       firstname == "A.J." ~ 75,
+      lastname == "Nangle" ~ 75,
+      firstname == "Leo" ~ 75,
       .default = ch11cw
     ),
     ch11hw = case_when(
       lastname == "Maggio" ~ 75,
+      lastname == "Nangle" ~ 75,
+      firstname == "Neev" ~ 75,
       .default = ch11hw
+    ),
+    ch14cw1 = case_when(
+      lastname == "Bader" ~ 20/22 * 100,
+      lastname == "Gianopulos" ~ 100,
+      lastname == "Aronstein" ~ 75,
+      lastname == "Nangle" ~ 20 / 22 * 75,
+      .default = ch14cw1
+    ),
+    ch14hw1 = case_when(
+      firstname == "Neev" ~ 75,
+      lastname == "Nangle" ~ 75,
+      .default = ch14hw1
+    ),
+    ch15other = case_when(
+      lastname == "Gianopulos" ~ 75,
+      firstname == "Diana" ~ 75,
+      lastname == "Iofin" ~ 100,
+      firstname == "Ellan" ~ 75,
+      firstname == "Sonia" ~ 75,
+      lastname == "Barnett" ~ 75,
+      lastname == "Bender" ~ 75,
+      lastname == "Nangle" ~ 75,
+      firstname == "Neev" ~ 75,
+      firstname == "Nico" ~ 75,
+      lastname == "Sorgen" ~ 11 / 12 * 75,
+      firstname == "Jackson" ~ 75,
+      lastname == "Abush" ~ 75,
+      firstname == "Triton" ~ 75,
+      .default = ch15other
+    ),
+    ch15hw2 = case_when(
+      firstname == "Neev" ~ 100,
+      firstname == "Diana" ~ 75,
+      lastname == "Barnett" ~ 75,
+      firstname == "Leo" ~ 75,
+      firstname == "Alegra" ~ 10 / 12 * 75,
+      .default = ch15hw2
     ),
     ch22hw4 = case_when(
       lastname == "Smith" ~ 100,
       firstname == "Neev" ~ 75,
       firstname == "A.J." ~ 75,
+      lastname == "Nangle" ~ 75,
       .default = ch22hw4
     ),
     ch22cw2 = case_when(
       lastname == "Smith" ~ 100,
       firstname == "Neev" ~ 75,
       firstname == "A.J." ~ 75,
+      lastname == "Nangle" ~ 75,
       .default = ch22cw2
-    ),
-    ch10hw2 = case_when(
-      firstname == "A.J." ~ 2 / 3 * 75,
-      .default = ch10hw2
     )
   )
 
@@ -128,4 +151,4 @@ df_hw_sem1 <- df_hw_mp1 |>
   ungroup() |>
   unite("name", firstname, lastname, sep = " ")
 
-df_hw_sem1 |> filter(if_any(everything(), ~ . == 0)) |> View()
+# df_hw_sem1 |> filter(if_any(everything(), ~ . == 0)) |> View()
