@@ -28,8 +28,12 @@ df_asmnt_join <- sheets |>
 
 # Replacing big test if they did better on the exam
 df_asmnt_exam <- df_asmnt_join |>
-  mutate(test1 = if_else(micro_exam > test1, micro_exam, test1),
-         test2 = if_else(micro_exam > test2, micro_exam, test2))
+  mutate(test1 = if_else(micro_exam > test1 & !is.na(micro_exam),
+                         micro_exam,
+                         test1),
+         test2 = if_else(micro_exam > test2 & !is.na(micro_exam),
+                         micro_exam,
+                         test2))
 
 # Calculating MP1, MP2 and Sem 1 Averages
 
