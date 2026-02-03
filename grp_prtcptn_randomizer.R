@@ -73,12 +73,12 @@ im1_a <- c(
   "Sawyer",
   "Catalina",
   "Ishaani",
+  "Kieran",
   "Alexia",
   "Ryan",
   "Declan",
   "Henry",
   "Tayhan",
-  "Marco",
   "Darya",
   "Harrison",
   "Jade"
