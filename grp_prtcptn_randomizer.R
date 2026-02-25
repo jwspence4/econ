@@ -69,11 +69,11 @@ im2_d <- c(
 im1_a <- c(
   "Double A",
   "Sam",
-  "Connor",
+  "Double C",
   "Sawyer",
   "Catalina",
   "Ishaani",
-  "Kieran",
+  "KD",
   "Alexia",
   "Ryan",
   "Declan",
