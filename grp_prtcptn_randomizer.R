@@ -118,3 +118,5 @@ tbl_grps(im1_a)
 # Participation randomizer ----
 im2_d |> sample(4)
 im1_a |> sample(4)
+sample(econ_c)
+
