@@ -6,9 +6,9 @@ library(tidyverse)
 
 # Calculate HW and Assessment grades ----
 
-source("~/trinity/econ/grading/hw_grader.R")
+source("~/trinity/econ/grading/sem1_hw.R")
 
-source("~/trinity/econ/grading/asmnt_grader.R")
+source("~/trinity/econ/grading/sem1_assmnt.R")
 
 rm(list = setdiff(ls(), c("df_hw_sem1", "df_asmnt_sem1")))
 

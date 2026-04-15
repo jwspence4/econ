@@ -139,7 +139,7 @@ gs4_auth("john.spence@trinityschoolnyc.org")
 
 url_hw_mp1 <- "https://docs.google.com/spreadsheets/d/1Icb4RL6DfV1aeGphwiCJ9NRHFBuQ3EH3nNI_HoyShdA/edit?gid=0#gid=0"
 
-df_hw_mp1 <- read_sheet(url_hw_mp1) |>
+df_hw_mp1 <- read_sheet(url_hw_mp1, sheet = "q1") |>
   mutate(across(.cols = contains("ch"),
                 .fns = ~ . * 100))
 
