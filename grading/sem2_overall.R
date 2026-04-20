@@ -9,8 +9,8 @@ gs4_auth("john.spence@trinityschoolnyc.org")
 
 hw_url <- "https://docs.google.com/spreadsheets/d/1Icb4RL6DfV1aeGphwiCJ9NRHFBuQ3EH3nNI_HoyShdA/edit?gid=0#gid=0"
 
-df_mp3_hw <- read_sheet(hw_url, sheet = "q2") |>
-  select(name, mp3_hw)
+df_mp3_hw <- read_sheet(hw_url, sheet = "mp3") |>
+  select(name, hw_mp3)
 
 # MP 3 Assessment ----
 
