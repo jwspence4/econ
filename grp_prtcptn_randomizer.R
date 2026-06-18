@@ -88,7 +88,7 @@ im1_a <- c(
 
 tbl_grps <- function(class) {
   
-  if (length(class) < 15) { n_grp = 4 } else { n_grp = 5 }
+  if (length(class) < 15) { n_grp = 4 } else { n_grp = 7 }
   
   tbl_n <- rep_along(class, 1:n_grp) |> sample(size = length(class))
   

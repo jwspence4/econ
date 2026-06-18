@@ -46,8 +46,6 @@ df_sem2_assmnt <- assmnt_sheets |>
                                      ch31_quiz,
                                      ch34_quiz,
                                      ch35_quiz)),
-                          na.rm = TRUE),
-         test_sem2 = mean(c_across(c(test_mp3, test_mp4)),
                           na.rm = TRUE)) |>
   ungroup() |>
   mutate(ch35_quiz = if_else(is.na(ch35_quiz), quiz_sem2, ch35_quiz),
@@ -55,5 +53,9 @@ df_sem2_assmnt <- assmnt_sheets |>
          macro_exam = if_else(is.na(macro_exam), quiz_sem2, macro_exam)) |>
   mutate(test_mp3 = if_else(test_mp3 < macro_exam, macro_exam, test_mp3),
          test_mp4 = if_else(test_mp4 < macro_exam, macro_exam, test_mp4)) |>
+  rowwise() |>
+  mutate(test_sem2 = mean(c_across(c(test_mp3, test_mp4)),
+                          na.rm = TRUE)) |>
+  ungroup() |>
   select(-contains("ch"))
 
