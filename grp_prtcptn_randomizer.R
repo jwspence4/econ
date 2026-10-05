@@ -5,90 +5,67 @@ library(tidyverse)
 
 # Define rosters ----
 econ_c <- c(
-  "Ellan",
-  "Max",
-  "Zach",
-  "Nico",
-  "Edmund",
-  "Henry",
-  "Oliver",
-  "Nellie",
-  "Ishaan",
-  "Sonia",
-  "John",
-  "Neev",
-  "Leo",
-  "Soham",
-  "Jackson",
-  "Michael",
-  "Raana",
-  "Diana",
-  "Sanaii",
-  "Brooke"
-)
-
-econ_f <- c(
-  "Ale",
-  "A.J.",
-  "James",
-  "Sophia B.",
-  "Jordan",
-  "Sophia G.",
-  "Daniel",
+  "Sydney",
+  "Theo",
+  "Elliot",
+  "Alexis",
+  "Evan",
+  "Caitlin",
+  "Adrian",
+  "Charlie",
   "Sam",
-  "Maxine",
-  "Win",
-  "Triton",
-  "Collin",
-  "Julia",
-  "Alegra",
-  "Madhav",
-  "Simon",
-  "Elena",
-  "Vedant",
-  "Blake",
-  "Emma"
-)
-
-im2_d <- c(
-  "Kamilla",
-  "Violet",
-  "Paula",
-  "Avery",
-  "Edie",
-  "Veronika",
-  "Oscar",
-  "Sachin",
-  "Tyler",
-  "Anya",
-  "Mina",
-  "Sebastian",
-  "Mia"
-)
-
-im1_a <- c(
-  "Double A",
-  "Sam",
-  "Mysterious C",
-  "Sawyer",
-  "Catalina",
-  "Ishaani",
-  "Kieran",
-  "Alexia",
+  "Siya",
   "Ryan",
-  "Declan",
-  "Henry",
-  "Tayhan",
-  "Darya",
-  "Harrison",
-  "Jade"
+  "Aidan",
+  "Anders",
+  "Forest",
+  "Caden",
+  "Quinn",
+  "Ilan",
+  "Isabella"
+)
+
+econ_e <- c(
+  "Armaan",
+  "Adele",
+  "Samo",
+  "Maddy",
+  "Kian",
+  "Fahad",
+  "Caroline",
+  "Max",
+  "Allen",
+  "Jared",
+  "Jacob",
+  "Sami",
+  "Cooper",
+  "Luke"
+)
+
+im1_g <- c(
+  "Owen",
+  "Hoda",
+  "Aidan",
+  "Arianna",
+  "Alexander",
+  "Naveed",
+  "Maia",
+  "Daniel",
+  "Hassanata",
+  "Jackson",
+  "Laila",
+  "Jonathan",
+  "Sofia",
+  "Luca"
 )
 
 # Table Randomizer ----
 
 tbl_grps <- function(class) {
   
-  if (length(class) < 15) { n_grp = 4 } else { n_grp = 5 }
+  n_grp <- length(class) %/% 3
+  
+  # n_grp <- ceiling(length(class) / 3)
   
   tbl_n <- rep_along(class, 1:n_grp) |> sample(size = length(class))
   
@@ -99,7 +76,7 @@ tbl_grps <- function(class) {
     group_by(tbl_n) |>
     mutate(n = row_number(tbl_n)) |>
     pivot_wider(names_from = tbl_n,
-                names_prefix = "Table ",
+                names_prefix = "Group ",
                 values_from = name,
                 values_fill = "") |>
     select(-n)
@@ -109,14 +86,7 @@ tbl_grps <- function(class) {
 # Select Table Groups ----
 tbl_grps(econ_c)
 
-tbl_grps(econ_f)
+tbl_grps(econ_e)
 
-tbl_grps(im2_d)
-
-tbl_grps(im1_a)
-
-# Participation randomizer ----
-im2_d |> sample(4)
-im1_a |> sample(4)
-sample(econ_c)
+tbl_grps(im1_g)
 
